@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+    <head>
+        <title>Title Nav Using Flexbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/dropdown.css" rel="stylesheet" type="text/css" />  
+      
+        
+        <style>
+            #container {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #userReport {
+                width: 40%;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        
+        <div id="titleNav">
+            <div id="title">
+                 &nbspGraphics Information
+            </div>
+        
+        
+            <div id="nav">
+                <div class="dropdown">
+                  
+                    <a href="#/home">Home</a>
+                </div>
+              
+                      
+                <div class="dropdown">
+                    <a href="#/blog">Blog</a> 
+                    
+                </div>
+            </div>
+        </div>
+        <div id="content">
+
+            <p>
+                &nbspThis site will offer information and statistics on graphics cards. 
+                &nbspFields for my other database table would be names of graphics cards, cores, cost, brand, picture, release date.
+                &nbspI have some prior web developlment expereince but I would not consider myself proficient.
+            </p>
+            <p style="text-align:center;">
+                <img src="pics/RTX_2080Ti.png" style="width:50%; border-radius:10px;">
+            </p>
+
+
+        </div>
+        <div id="container">
+            <div id="userReport" class="clickSort"></div>
+        </div>
+        
+        <div id="footer">
+            Leo He
+        </div>
+      
+        
+        <div id="view">
+
+        </div>
+        <script src='js/reusable/drop.js'></script>
+        <script src='js/components/home.js'></script>
+        <script src='js/components/blog.js'></script>
+        
+      
+    </body>
+</html>

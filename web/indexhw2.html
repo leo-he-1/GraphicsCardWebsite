@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+    <head>
+        <title>Title Nav Using Flexbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/dropdown.css" rel="stylesheet" type="text/css" />  
+      
+        
+        <style>
+            #container {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #userReport {
+                width: 40%;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        
+        <div id="titleNav">
+            <div id="title">
+                Graphics Information
+            </div>
+        
+        
+            <div id="nav">
+                <div class="dropdown">
+                  
+                    <a href="#/home">Home</a>
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader" onclick="drop(this, 'hide', 'show',)">Account</div>
+                    <div class="dropContent">
+                        <a>Register</a> <br/>
+                        <a>Log In</a> <br/>
+                        <a>Profile</a> <br/>
+                        <a>Log Out</a>
+                    </div> 
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader" onclick="drop(this, 'hide', 'show')">Search</div>
+                    <div class="dropContent">
+                       
+                    <a href="#/user">user</a> <br/>
+                    <a href="#/other">other</a> <br/>
+                    </div>
+                </div>
+
+                      
+                <div class="dropdown">
+                    <a href="#/blog">Blog</a> 
+                    
+                </div>
+            </div>
+        </div>
+        <div id="content">
+
+            <p>
+                RTX 2080 Ti 
+            </p>
+            <p style="text-align:center;">
+                <img src="pics/RTX_2080Ti.png" style="width:50%; border-radius:10px;">
+            </p>
+
+
+        </div>
+        <div id="container">
+            <div id="userReport" class="clickSort"></div>
+        </div>
+        
+        <div id="footer">
+            Leo He
+        </div>
+        <script src='js/reusable/drop.js'></script>
+        
+        
+       
+        
+        <div id="view">
+
+        </div>
+        
+      
+        
+        <script src="js/reusable/routeFw.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/user.js"></script>
+        <script src="js/components/other.js"></script>
+        <script src="js/reusable/ajax.js"></script>
+        
+      
+  
+        <script>
+         
+            "use strict";
+          
+
+            var myRoutes = [];
+
+            myRoutes['#/home'] = home;
+            myRoutes['#/blog'] = blog;
+            myRoutes['#/user'] = user;
+            myRoutes['#/other'] = other;
+
+
+            var myRouteFw = routeFw({
+                routeArray: myRoutes,
+                contentId: "content",
+                startLink: "#/home"
+            });
+
+            // print the routes (check console.log)
+            // This example is a bit silly (since the HTML page already has access to the route 
+            // array), but it does show you how the HTML page can get a reference to an object 
+            // and then use that to invoke any public methods on the object. 
+            myRouteFw.printRoutes();
+        </script>
+    </body>
+</html>

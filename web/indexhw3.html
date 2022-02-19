@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+    <head>
+        <title>Title Nav Using Flexbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="style/main.css" rel="stylesheet" type="text/css" />  
+        <link href="style/dropdown.css" rel="stylesheet" type="text/css" />  
+      
+        
+        <style>
+            body {
+                font-family:sans-serif;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            .container {
+                display: flex;
+                flex-direction: row;
+            }
+            .container .graphicsStyle {
+                background-color:#DDDDDD; /* light grey */
+                padding:0.5rem;
+                margin:0.5rem;
+                border-radius: 8px;
+                box-shadow: 3px 3px 3px #888888; /* darker grey */
+                width: 48%; 
+                margin: 1%;
+                text-align: center;
+                margin:auto;
+            }
+            .container .graphicsStyle img {
+                width: 80%;
+            }
+
+            .container .graphicsStyle h3 {
+                margin-bottom: 0rem;
+            }
+        </style>
+        
+    </head>
+    <body>
+        
+        <div id="titleNav">
+            <div id="title">
+                Graphics Information
+            </div>
+        
+        
+            <div id="nav">
+                <div class="dropdown">
+                  
+                    <a href="#/home">Home</a>
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader" onclick="drop(this, 'hide', 'show',)">Account</div>
+                    <div class="dropContent">
+                        <a>Register</a> <br/>
+                        <a>Log In</a> <br/>
+                        <a>Profile</a> <br/>
+                        <a>Log Out</a>
+                    </div> 
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader" onclick="drop(this, 'hide', 'show')">Search</div>
+                    <div class="dropContent">
+                       
+                    <a href="#/user">user</a> <br/>
+                    <a href="#/other">other</a> <br/>
+                    <a href="#/jsObjects">JS objects</a> <br/>
+                    </div>
+                </div>
+                
+                      
+                <div class="dropdown">
+                    <a href="#/blog">Blog</a> 
+                    
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="container">
+            <div id="graphics" class="graphicsStyle"></div>
+            </div>
+
+        </div>
+        
+        <div id="footer">
+            Leo He
+        </div>
+        
+    
+
+        
+        <div id="view">
+
+        </div>
+        
+      
+        <script src='js/reusable/drop.js'></script>
+        <script src="js/reusable/routeFw.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/user.js"></script>
+        <script src="js/components/other.js"></script>
+        <script src="js/components/graphics.js"></script>
+        <script src="js/reusable/ajax.js"></script>
+        <script src="js/reusable/makeGraphics.js"></script>
+        <script src="js/reusable/twoGraphicsCards.js"></script>
+        <script src="js/reusable/jsObjects.js"></script>
+        
+        <script>
+            "use strict";
+
+            var graphicsObj = twoGraphicsCards("pics/RTX3060.jpg","pics/RTX3070.jpg","pics/specs.png");
+            document.getElementById("graphics").appendChild(graphicsObj);
+            
+        </script>
+        
+        <script>
+         
+            "use strict";
+          
+
+            var myRoutes = [];
+
+            myRoutes['#/home'] = home;
+            myRoutes['#/blog'] = blog;
+            myRoutes['#/user'] = user;
+            myRoutes['#/other'] = other;
+            myRoutes['#/jsObjects'] = jsObjects;
+            myRoutes['#/makeGraphics'] = makeGraphics;
+            myRoutes['#/twoGraphicsCards'] = twoGraphicsCards;
+
+            var myRouteFw = routeFw({
+                routeArray: myRoutes,
+                contentId: "content",
+                startLink: "#/home"
+            });
+
+            // print the routes (check console.log)
+            // This example is a bit silly (since the HTML page already has access to the route 
+            // array), but it does show you how the HTML page can get a reference to an object 
+            // and then use that to invoke any public methods on the object. 
+            myRouteFw.printRoutes();
+        </script>
+    </body>
+</html>
